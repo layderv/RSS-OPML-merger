@@ -4,7 +4,11 @@ use warnings;
 
 use XML::OPML::LibXML;
 
-my $fname = "full.xml";
+my $fname = $ARGV[0];
+if (not defined $fname) {
+    die "Usage: $0 file_name";
+}
+
 my $doc = XML::OPML::LibXML->new->parse_file($fname);
 my $res = "";
 
